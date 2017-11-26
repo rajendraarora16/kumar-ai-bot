@@ -1,0 +1,16 @@
+#
+# KUMAR Server service which will expose the KUMAR Server to the rest of the cluster
+#
+kind: Service
+apiVersion: v1
+metadata:
+  name: kumar-server
+  namespace: web
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: kumar-server
+  type: LoadBalancer
